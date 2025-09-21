@@ -52,36 +52,36 @@
                     </f:SimpleForm>
                 </content>
             </Panel>
-            <Table headerText="Products" growing="true" growingThreshold="5" class="sapUiResponsiveMargin" width="auto" items="{/Products}" mode="SingleSelectLeft" selectionChange=".onCustomerChange">
+            <Table headerText="Suppliers" growing="true" growingThreshold="5" class="sapUiResponsiveMargin" width="auto" items="{/Suppliers}" mode="SingleSelectLeft" selectionChange=".onCustomerChange">
                 <columns>
                     <Column>
                         <header>
-                            <Text text="Product ID"/>
+                            <Text text="Supplier ID"/>
                         </header>
                     </Column>
                     <Column>
                         <header>
-                            <Text text="Product Name"/>
+                            <Text text="Supplier Name"/>
                         </header>
                     </Column>
                     <Column>
                         <header>
-                            <Text text="Stock"/>
+                            <Text text="Web Address"/>
                         </header>
                     </Column>
                     <Column>
                         <header>
-                            <Text text="Price"/>
+                            <Text text="Address"/>
                         </header>
                     </Column>
                     <Column>
                         <header>
-                            <Text text="Weight"/>
+                            <Text text="Contact Name"/>
                         </header>
                     </Column>
                     <Column>
                         <header>
-                            <Text text="Average Rating"/>
+                            <Text text="Email"/>
                         </header>
                     </Column>
                 </columns>
@@ -90,28 +90,64 @@
                         <cells>
                             <ObjectIdentifier title="{Id}"/>
                             <ObjectIdentifier title="{Name}"/>
-                            <ObjectIdentifier title="{StockQuantity}"/>
-                            <Text text="{WeightMeasure}"/>
-                            <ObjectNumber number="{Price}" unit="{CurrencyCode}"/>
-                            <Text text="{AverageRating}"/>
+                            <ObjectIdentifier title="{WebAddress}"/>
+                            <Text text="{FormattedAddress}"/>
+                            <ObjectIdentifier title="{FormattedContactName}"/>
+                            <Text text="{Email}"/>
                         </cells>
                     </ColumnListItem>
                 </items>
             </Table>
             <!-- Supplier “table”: either use a Form or a 1-row Grid -->
             <!-- Here, a simple table-like row without list binding -->
-            <g:Grid id="bookingTable" width="auto">
-                <g:content>
-                    <Text text="Supplier ID"/>
-                    <Text text="{Id}"/>
-
-                    <Text text="Company Name"/>
-                    <Text text="{Name}"/>
-
-                    <Text text="Contact"/>
-                    <Text text="{FormattedContactName}"/>
-                </g:content>
-            </g:Grid>
+            <Table id="productsTable" headerText="Products" items="{/Products}" growing="true" growingThreshold="5" class="sapUiResponsiveMargin" width="auto">
+                <columns>
+                    <Column>
+                        <header>
+                            <Text text="Product ID"/>
+                        </header>                        
+                    </Column>
+                    <Column>
+                        <header>
+                            <Text text="Product Name"/>
+                        </header>                        
+                    </Column>
+                    <Column>
+                        <header>
+                            <Text text="Image"/>
+                        </header>                        
+                    </Column>
+                    <Column>
+                        <header>
+                            <Text text="Price"/>
+                        </header>                        
+                    </Column>
+                    <Column>
+                        <header>
+                            <Text text="Stock"/>
+                        </header>                        
+                    </Column>
+                    <Column>
+                        <header>
+                            <Text text="Weight"/>
+                        </header>                        
+                    </Column>
+                </columns>
+                <items>
+                    <ColumnListItem>
+                        <cells>
+                            <ObjectIdentifier title="{Id}"/>
+                            <ObjectIdentifier title="{Name}"/> 
+                            <ObjectIdentifier title="{ImageUrl}"/>
+                            <ObjectNumber
+                                number="{Price}"
+							    unit="{CurrencyCode}"/>
+                            <Text text="{StockQuantity}"/>
+                            <Text text="{WeightMeasure}"/>
+                        </cells>
+                    </ColumnListItem>
+                </items>
+            </Table>
         </content>
     </Page>
 

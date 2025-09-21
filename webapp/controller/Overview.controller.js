@@ -3,11 +3,13 @@ sap.ui.define(
     "sap/ui/core/mvc/Controller",
     "sap/ui/core/syncStyleClass",
     "sap/ui/model/json/JSONModel",
+    "sap/ui/model/Filter",
+    "sap/ui/model/FilterOperator"
   ],
   /**
    * @param {typeof sap.ui.core.mvc.Controller} Controller
    */
-  function (Controller, syncStyleClass, JSONModel) {
+  function (Controller, syncStyleClass, JSONModel, Filter, FilterOperator) {
     "use strict";
 
     return Controller.extend("ztest.odata.controller.Overview", {
@@ -45,23 +47,29 @@ sap.ui.define(
       },
 
       onCustomerChange: function (oEvent) {
-        var oBindingContext = oEvent.getParameter("listItem").getBindingContext();
+        var oSupplierBindingContext = oEvent.getParameter("listItem").getBindingContext();
         // Get the actual data object from the model
-        var oData = oBindingContext.getObject();
-
-        // Example: log the whole row data
+        var oData = oSupplierBindingContext.getObject();
         console.log("Selected row data:", oData);
-        console.log("Path:" + oBindingContext.getPath());
-
+        console.log("Path:" + oSupplierBindingContext.getPath());
         // If you want a specific property, e.g., "Name"
         // console.log("Name:", oData.Name);
-        // this.byId("bookingTable").setBindingContext(oBindingContext);
+        const sSupplierId = oSupplierBindingContext.getProperty("Id");
 
-        // Supplier is a grid: there is only one supplier for a product.
-        // Supplier cannot be a table because automatically add top and growth and it fails bs there is only one supplier
-        // The binding from Products to Suppliers is based on the ODATA NavigationProperty Supplier (see metadata)
-        this.byId("bookingTable").bindElement({path: oBindingContext.getPath() + "/Supplier"});
-      },
+        // ↓↓↓ THIS is the binding that points to the items aggregation
+        const oProductsBinding = this.byId("productsTable").getBinding("items");
+        
+        if (sSupplierId == null || sSupplierId === "") {
+          oProductsBinding.filter([], "Application"); // clear
+          return;
+        }
+
+        // .../Products?$filter=SupplierId eq <ID>
+        oProductsBinding.filter(
+          [new Filter("SupplierId", FilterOperator.EQ, sSupplierId)],
+          "Application"
+        );
+      }
     });
   }
 );
