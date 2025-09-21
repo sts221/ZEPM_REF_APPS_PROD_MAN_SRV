@@ -51,10 +51,14 @@ sap.ui.define(
 
         // Example: log the whole row data
         console.log("Selected row data:", oData);
+        console.log("Path:" + oBindingContext.getPath());
 
         // If you want a specific property, e.g., "Name"
         // console.log("Name:", oData.Name);
         // this.byId("bookingTable").setBindingContext(oBindingContext);
+
+        // Supplier is a grid: there is only one supplier for a product.
+        // Supplier cannot be a table because automatically add top and growth and it fails bs there is only one supplier
         this.byId("bookingTable").bindElement({path: oBindingContext.getPath() + "/Supplier"});
       },
     });
