@@ -59,6 +59,7 @@ sap.ui.define(
 
         // Supplier is a grid: there is only one supplier for a product.
         // Supplier cannot be a table because automatically add top and growth and it fails bs there is only one supplier
+        // The binding from Products to Suppliers is based on the ODATA NavigationProperty Supplier (see metadata)
         this.byId("bookingTable").bindElement({path: oBindingContext.getPath() + "/Supplier"});
       },
     });
