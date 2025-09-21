@@ -1,7 +1,12 @@
 <mvc:View controllerName="ztest.odata.controller.App"
     xmlns:mvc="sap.ui.core.mvc" displayBlock="true"
     xmlns="sap.m">
-    <Page id="page" title="{i18n>title}">
-        <content />
-    </Page>
+
+    <Shell> 
+        <App>
+            <pages>
+                <mvc:XMLView viewName="ztest.odata.view.Overview"/>
+            </pages>
+        </App>
+    </Shell>
 </mvc:View>

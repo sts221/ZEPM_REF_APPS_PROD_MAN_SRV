@@ -1,0 +1,118 @@
+<mvc:View controllerName="ztest.odata.controller.Overview"
+    xmlns:f="sap.ui.layout.form"
+    xmlns:core="sap.ui.core"
+    xmlns:mvc="sap.ui.core.mvc"
+    xmlns:g="sap.ui.layout"
+    xmlns="sap.m">
+
+    <Page title="Flight Customers">
+        <content>
+            <Panel headerText="New Customer" expandable="true" expanded="true" class="sapUiResponsiveMargin sapUiHideOnPhone" width="auto">
+                <content>
+                    <f:SimpleForm layout="ColumnLayout" editable="true">
+                        <f:toolbar>
+                            <Toolbar>
+                                <content>
+                                    <ToolbarSpacer/>
+                                    <Button icon="sap-icon://create" text="Create Customer" press=".onSave"/>
+                                </content>
+                            </Toolbar>
+                        </f:toolbar>
+                        <f:content>
+                            <core:Title text="General Data"/>
+                            <Label text="Form"/>
+                            <Input value="{customer>/Form}"/>
+
+                            <Label text="Customer Name"/>
+                            <Input value="{customer>/CustomerName}"/>
+
+                            <Label text="Discount"/>
+                            <Input value="{customer>/Discount}"/>
+
+                            <core:Title text="Address Data"/>
+                            <Label text="Street"/>
+                            <Input value="{customer>/Street}"/>
+
+                            <Label text="Post Code"/>
+                            <Input value="{customer>/PostCode}"/>
+
+                            <Label text="City"/>
+                            <Input value="{customer>/City}"/>
+
+                            <Label text="Country"/>
+                            <Input value="{customer>/Country}"/>
+
+                            <core:Title text="Contact Data"/>
+                            <Label text="Email"/>
+                            <Input value="{customer>/Email}"/>
+
+                            <Label text="Telephone"/>
+                            <Input value="{customer>/Telephone}"/>
+                        </f:content>
+                    </f:SimpleForm>
+                </content>
+            </Panel>
+            <Table headerText="Products" growing="true" growingThreshold="5" class="sapUiResponsiveMargin" width="auto" items="{/Products}" mode="SingleSelectLeft" selectionChange=".onCustomerChange">
+                <columns>
+                    <Column>
+                        <header>
+                            <Text text="Product ID"/>
+                        </header>
+                    </Column>
+                    <Column>
+                        <header>
+                            <Text text="Product Name"/>
+                        </header>
+                    </Column>
+                    <Column>
+                        <header>
+                            <Text text="Stock"/>
+                        </header>
+                    </Column>
+                    <Column>
+                        <header>
+                            <Text text="Price"/>
+                        </header>
+                    </Column>
+                    <Column>
+                        <header>
+                            <Text text="Weight"/>
+                        </header>
+                    </Column>
+                    <Column>
+                        <header>
+                            <Text text="Average Rating"/>
+                        </header>
+                    </Column>
+                </columns>
+                <items>
+                    <ColumnListItem>
+                        <cells>
+                            <ObjectIdentifier title="{Id}"/>
+                            <ObjectIdentifier title="{Name}"/>
+                            <ObjectIdentifier title="{StockQuantity}"/>
+                            <Text text="{WeightMeasure}"/>
+                            <ObjectNumber number="{Price}" unit="{CurrencyCode}"/>
+                            <Text text="{AverageRating}"/>
+                        </cells>
+                    </ColumnListItem>
+                </items>
+            </Table>
+            <!-- Supplier “table”: either use a Form or a 1-row Grid -->
+            <!-- Here, a simple table-like row without list binding -->
+            <g:Grid id="bookingTable" width="auto">
+                <g:content>
+                    <Text text="Supplier ID"/>
+                    <Text text="{Id}"/>
+
+                    <Text text="Company Name"/>
+                    <Text text="{Name}"/>
+
+                    <Text text="Contact"/>
+                    <Text text="{FormattedContactName}"/>
+                </g:content>
+            </g:Grid>
+        </content>
+    </Page>
+
+</mvc:View>

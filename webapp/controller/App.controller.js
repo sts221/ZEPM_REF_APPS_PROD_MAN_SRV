@@ -6,7 +6,7 @@ function (Controller) {
 
     return Controller.extend("ztest.odata.controller.App", {
         onInit: function () {
-
+            this.getView().addStyleClass(this.getOwnerComponent().getContentDensityClass());
         }
     });
 });
