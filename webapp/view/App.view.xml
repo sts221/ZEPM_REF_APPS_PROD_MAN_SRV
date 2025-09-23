@@ -3,10 +3,6 @@
     xmlns="sap.m">
 
     <Shell> 
-        <App>
-            <pages>
-                <mvc:XMLView viewName="ztest.odata.view.Overview"/>
-            </pages>
-        </App>
+        <App id="app"/>
     </Shell>
 </mvc:View>

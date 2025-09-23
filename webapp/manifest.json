@@ -89,7 +89,7 @@
       "routes": [
         {
           "name": "RouteApp",
-          "pattern": ":?query:",
+          "pattern": "abc",
           "target": [
             "TargetApp"
           ]
@@ -100,8 +100,8 @@
           "viewType": "XML",
           "transition": "slide",
           "clearControlAggregation": false,
-          "viewId": "App",
-          "viewName": "App"
+          "viewId": "overview",
+          "viewName": "Overview"
         }
       }
     },
