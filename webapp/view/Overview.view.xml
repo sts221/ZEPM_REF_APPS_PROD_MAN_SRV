@@ -52,7 +52,7 @@
                     </f:SimpleForm>
                 </content>
             </Panel>
-            <Table headerText="Suppliers" growing="true" growingThreshold="5" class="sapUiResponsiveMargin" width="auto" items="{/Suppliers}" mode="SingleSelectLeft" selectionChange=".onCustomerChange">
+            <Table id="suppliersTable" headerText="Suppliers" growing="true" growingThreshold="5" class="sapUiResponsiveMargin" width="auto" items="{/Suppliers}" mode="SingleSelectLeft" selectionChange=".onCustomerChange">
                 <columns>
                     <Column>
                         <header>
@@ -100,54 +100,55 @@
             </Table>
             <!-- Supplier “table”: either use a Form or a 1-row Grid -->
             <!-- Here, a simple table-like row without list binding -->
-            <Table id="productsTable" headerText="Products" items="{/Products}" growing="true" growingThreshold="5" class="sapUiResponsiveMargin" width="auto">
+            <Table id="productsTable" headerText="Products" growing="true" growingThreshold="5" class="sapUiResponsiveMargin" width="auto">
                 <columns>
                     <Column>
                         <header>
                             <Text text="Product ID"/>
-                        </header>                        
+                        </header>
                     </Column>
                     <Column>
                         <header>
                             <Text text="Product Name"/>
-                        </header>                        
+                        </header>
                     </Column>
                     <Column>
                         <header>
                             <Text text="Image"/>
-                        </header>                        
+                        </header>
                     </Column>
                     <Column>
                         <header>
                             <Text text="Price"/>
-                        </header>                        
+                        </header>
                     </Column>
                     <Column>
                         <header>
                             <Text text="Stock"/>
-                        </header>                        
+                        </header>
                     </Column>
                     <Column>
                         <header>
                             <Text text="Weight"/>
-                        </header>                        
+                        </header>
                     </Column>
                 </columns>
-                <items>
-                    <ColumnListItem>
+                <dependents>
+                    <ColumnListItem id="productsTemplate">
                         <cells>
                             <ObjectIdentifier title="{Id}"/>
-                            <ObjectIdentifier title="{Name}"/> 
-                            <ObjectIdentifier title="{ImageUrl}"/>
-                            <ObjectNumber
-                                number="{Price}"
-							    unit="{CurrencyCode}"/>
-                            <Text text="{StockQuantity}"/>
-                            <Text text="{WeightMeasure}"/>
+                            <ObjectIdentifier title="{Name}"/>
+                            <Image src="{ImageUrl}" width="3rem" height="3rem" densityAware="false" />
+                            <!-- <ObjectIdentifier title="{ImageUrl}"/> -->
+                            <ObjectNumber number="{Price}" unit="{CurrencyCode}"/>
+                            <ObjectNumber number="{StockQuantity}" unit="{QuantityUnit}"/>
+                            <!-- <Text text="{StockQuantity}"/> -->
+                            <ObjectNumber number="{WeightMeasure}" unit="{WeightUnit}"/>
                         </cells>
                     </ColumnListItem>
-                </items>
+                </dependents>
             </Table>
+            <Button text="Clear Products" press=".onClear"/>
         </content>
     </Page>
 

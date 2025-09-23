@@ -46,8 +46,20 @@ sap.ui.define(
         this.byId("dialog").close();
       },
 
+      onClear: function() {
+         const oProductsTable = this.byId("productsTable");
+         // in the view, the Products ColumnListItems is under <dependents>. Otherwise it would 
+         // dissapear with the following unbindItems()
+         oProductsTable.unbindItems();
+         const oSuppliersTable = this.byId("suppliersTable");
+         oSuppliersTable.removeSelections(true); 
+
+      },
+
       onCustomerChange: function (oEvent) {
         var oSupplierBindingContext = oEvent.getParameter("listItem").getBindingContext();
+        
+        if (!oSupplierBindingContext) return; 
         // Get the actual data object from the model
         var oData = oSupplierBindingContext.getObject();
         console.log("Selected row data:", oData);
@@ -56,19 +68,27 @@ sap.ui.define(
         // console.log("Name:", oData.Name);
         const sSupplierId = oSupplierBindingContext.getProperty("Id");
 
-        // ↓↓↓ THIS is the binding that points to the items aggregation
-        const oProductsBinding = this.byId("productsTable").getBinding("items");
-        
-        if (sSupplierId == null || sSupplierId === "") {
-          oProductsBinding.filter([], "Application"); // clear
-          return;
+        // Get the Products table
+        const oProductsTable = this.byId("productsTable");
+
+        // For the first time, the table is not bound, it is empty. 
+        // When you click on a supplier then the data should be displayed in Products
+        // Bind the Products table <items="/Products">
+        var oProductsBindingItems = oProductsTable.getBinding("items");
+        if (!oProductsBindingItems) {
+          const oTemplate = this.byId("productsTemplate").clone();
+          oProductsTable.bindItems({
+            path: "/Products",
+            template: oTemplate,
+            templateShareable: false
+
+          });
+          oProductsBindingItems = oProductsTable.getBinding("items");
         }
 
-        // .../Products?$filter=SupplierId eq <ID>
-        oProductsBinding.filter(
-          [new Filter("SupplierId", FilterOperator.EQ, sSupplierId)],
-          "Application"
-        );
+        oProductsBindingItems.filter(
+          [new Filter("SupplierId", FilterOperator.EQ, sSupplierId)], 
+          "Application"); 
       }
     });
   }
