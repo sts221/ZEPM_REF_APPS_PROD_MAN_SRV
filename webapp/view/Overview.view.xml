@@ -100,7 +100,8 @@
             </Table>
             <!-- Supplier “table”: either use a Form or a 1-row Grid -->
             <!-- Here, a simple table-like row without list binding -->
-            <Table id="productsTable" headerText="Products" growing="true" growingThreshold="5" class="sapUiResponsiveMargin" width="auto">
+            <Table  id="productsTable" headerText="Products" growing="true" 
+                    growingThreshold="5" class="sapUiResponsiveMargin" width="auto">
                 <columns>
                     <Column>
                         <header>
@@ -134,7 +135,7 @@
                     </Column>
                 </columns>
                 <dependents>
-                    <ColumnListItem id="productsTemplate">
+                    <ColumnListItem id="productsTemplate" type="Navigation" press=".onNavToDetails">
                         <cells>
                             <ObjectIdentifier title="{Id}"/>
                             <ObjectIdentifier title="{Name}"/>

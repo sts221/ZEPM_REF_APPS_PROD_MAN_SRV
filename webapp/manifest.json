@@ -84,14 +84,26 @@
         "viewPath": "ztest.odata.view",
         "controlAggregation": "pages",
         "controlId": "app",
-        "clearControlAggregation": false
+        "clearControlAggregation": false,
+        "bypassed": {
+          "target": [
+            "notFound"
+          ]
+        }
       },
       "routes": [
         {
           "name": "RouteApp",
-          "pattern": "abc",
+          "pattern": "",
           "target": [
             "TargetApp"
+          ]
+        },
+        {
+          "name": "DetailView",
+          "pattern": "detail",
+          "target": [
+            "DetailView"
           ]
         }
       ],
@@ -102,6 +114,19 @@
           "clearControlAggregation": false,
           "viewId": "overview",
           "viewName": "Overview"
+        },
+        "DetailView": {
+          "viewType": "XML",
+          "transition": "slide",
+          "clearControlAggregation": false,
+          "viewId": "detail",
+          "viewName": "Detail",
+          "viewLevel": 2
+        },
+        "notFound": {
+          "viewId": "notFound",
+          "viewName": "NotFound",
+          "transition": "show"
         }
       }
     },

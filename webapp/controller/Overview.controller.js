@@ -4,7 +4,7 @@ sap.ui.define(
     "sap/ui/core/syncStyleClass",
     "sap/ui/model/json/JSONModel",
     "sap/ui/model/Filter",
-    "sap/ui/model/FilterOperator"
+    "sap/ui/model/FilterOperator",
   ],
   /**
    * @param {typeof sap.ui.core.mvc.Controller} Controller
@@ -46,20 +46,21 @@ sap.ui.define(
         this.byId("dialog").close();
       },
 
-      onClear: function() {
-         const oProductsTable = this.byId("productsTable");
-         // in the view, the Products ColumnListItems is under <dependents>. Otherwise it would 
-         // dissapear with the following unbindItems()
-         oProductsTable.unbindItems();
-         const oSuppliersTable = this.byId("suppliersTable");
-         oSuppliersTable.removeSelections(true); 
-
+      onClear: function () {
+        const oProductsTable = this.byId("productsTable");
+        // in the view, the Products ColumnListItems is under <dependents>. Otherwise it would
+        // dissapear with the following unbindItems()
+        oProductsTable.unbindItems();
+        const oSuppliersTable = this.byId("suppliersTable");
+        oSuppliersTable.removeSelections(true);
       },
 
       onCustomerChange: function (oEvent) {
-        var oSupplierBindingContext = oEvent.getParameter("listItem").getBindingContext();
-        
-        if (!oSupplierBindingContext) return; 
+        var oSupplierBindingContext = oEvent
+          .getParameter("listItem")
+          .getBindingContext();
+
+        if (!oSupplierBindingContext) return;
         // Get the actual data object from the model
         var oData = oSupplierBindingContext.getObject();
         console.log("Selected row data:", oData);
@@ -71,7 +72,7 @@ sap.ui.define(
         // Get the Products table
         const oProductsTable = this.byId("productsTable");
 
-        // For the first time, the table is not bound, it is empty. 
+        // For the first time, the table is not bound, it is empty.
         // When you click on a supplier then the data should be displayed in Products
         // Bind the Products table <items="/Products">
         var oProductsBindingItems = oProductsTable.getBinding("items");
@@ -80,16 +81,21 @@ sap.ui.define(
           oProductsTable.bindItems({
             path: "/Products",
             template: oTemplate,
-            templateShareable: false
-
+            templateShareable: false,
           });
           oProductsBindingItems = oProductsTable.getBinding("items");
         }
 
         oProductsBindingItems.filter(
-          [new Filter("SupplierId", FilterOperator.EQ, sSupplierId)], 
-          "Application"); 
-      }
+          [new Filter("SupplierId", FilterOperator.EQ, sSupplierId)],
+          "Application"
+        );
+      },
+
+      onNavToDetails: function () {
+        var oRouter = this.getOwnerComponent().getRouter();
+        oRouter.navTo("DetailView");
+      },
     });
   }
 );
