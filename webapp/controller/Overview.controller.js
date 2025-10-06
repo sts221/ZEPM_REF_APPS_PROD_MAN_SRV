@@ -56,6 +56,7 @@ sap.ui.define(
       },
 
       onCustomerChange: function (oEvent) {
+        // Get the binding context from T1=Suppliers
         var oSupplierBindingContext = oEvent
           .getParameter("listItem")
           .getBindingContext();
@@ -92,9 +93,20 @@ sap.ui.define(
         );
       },
 
-      onNavToDetails: function () {
+      onNavToDetails: function (oEvent) {
         var oRouter = this.getOwnerComponent().getRouter();
-        oRouter.navTo("DetailView");
+        // have to pass also productId
+        var oSource = oEvent.getSource();
+        console.log("NavToDetails Source:" + oSource);
+        // the model does not have a name
+        var oBindingProducts = oSource.getBindingContext();
+        console.log("NavToDetails Path:", oBindingProducts.getPath());     // e.g. "/Products/3"
+        console.log("NavToDetails Data:", oBindingProducts.getObject());   // object of that product
+        
+        // Get the productId
+        var oProductId = oBindingProducts.getPath().substring("/Products".length);
+        oRouter.navTo("DetailView", {productId: oProductId});
+
       },
     });
   }

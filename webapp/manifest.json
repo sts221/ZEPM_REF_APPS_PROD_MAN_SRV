@@ -101,7 +101,7 @@
         },
         {
           "name": "DetailView",
-          "pattern": "detail",
+          "pattern": "detail/{productId}",
           "target": [
             "DetailView"
           ]

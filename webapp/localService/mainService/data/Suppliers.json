@@ -1,0 +1,122 @@
+[
+  {
+    "Id": "100000010",
+    "Name": "OffiPOR",
+    "Phone": "63138515864",
+    "Email": "supplier-info@offipor.test.com",
+    "WebAddress": "http://www.offipor.test.com",
+    "FormattedAddress": "City View Plaza 301a, PR 00968 Guaynabo, Puerto Rico",
+    "FormattedContactName": "Arianne Vernadeau",
+    "ContactPhone1": "63138515864",
+    "ContactPhone2": "63138515004",
+    "ContactEmail": "supplier-info@offipor.test.com"
+  },
+  {
+    "Id": "100000011",
+    "Name": "bür-o-nline",
+    "Phone": "57319154389",
+    "Email": "supplier-info@bur-o-nline.test.com",
+    "WebAddress": "http://www.bur-o-nline.test.com",
+    "FormattedAddress": "Chemnitzer Straße 48a, 1187 Dresden, Germany",
+    "FormattedContactName": "Giovanna Martins",
+    "ContactPhone1": "57319154389",
+    "ContactPhone2": "57319154004",
+    "ContactEmail": "supplier-info@bur-o-nline.test.com"
+  },
+  {
+    "Id": "100000012",
+    "Name": "Mein Ressort GmbH",
+    "Phone": "68762208483",
+    "Email": "supplier-info@mein-ressort-gmbh.test.com",
+    "WebAddress": "http://www.mein-ressort-gmbh.test.com",
+    "FormattedAddress": "Althardstrasse 80a, 8105 Regensdorf, Switzerland",
+    "FormattedContactName": "Kate De La Ronde",
+    "ContactPhone1": "68762208483",
+    "ContactPhone2": "68762208004",
+    "ContactEmail": "supplier-info@mein-ressort-gmbh.test.com"
+  },
+  {
+    "Id": "100000013",
+    "Name": "Office Line Prag",
+    "Phone": "39947387923",
+    "Email": "supplier-info@office-line-prag.test.com",
+    "WebAddress": "http://www.office-line-prag.test.com",
+    "FormattedAddress": "Vyskoclilova 1481/4a, 140 00 Praha, Czech Republic",
+    "FormattedContactName": "Vera Cantú",
+    "ContactPhone1": "39947387923",
+    "ContactPhone2": "39947387004",
+    "ContactEmail": "supplier-info@office-line-prag.test.com"
+  },
+  {
+    "Id": "100000014",
+    "Name": "Regular Custom Ltd",
+    "Phone": "35047798991",
+    "Email": "supplier-info@regular-custom-ltd.test.com",
+    "WebAddress": "http://www.regular-custom-ltd.test.com",
+    "FormattedAddress": "King Street 25a, WA16 6DW Knutsford, United Kingdom",
+    "FormattedContactName": "Carlos Pereira",
+    "ContactPhone1": "35047798991",
+    "ContactPhone2": "35047798004",
+    "ContactEmail": "supplier-info@regular-custom-ltd.test.com"
+  },
+  {
+    "Id": "100000015",
+    "Name": "Hauptbüro",
+    "Phone": "13602463585",
+    "Email": "supplier-info@hauptburo.test.com",
+    "WebAddress": "http://www.hauptburo.test.com",
+    "FormattedAddress": "Grundelbachstraße 10a, 71691 Freiberg a. N., Germany",
+    "FormattedContactName": "Kristian Friedmann",
+    "ContactPhone1": "13602463585",
+    "ContactPhone2": "13602463004",
+    "ContactEmail": "supplier-info@hauptburo.test.com"
+  },
+  {
+    "Id": "100000016",
+    "Name": "POLirado",
+    "Phone": "58837752208",
+    "Email": "supplier-info@polirado.test.com",
+    "WebAddress": "http://www.polirado.test.com",
+    "FormattedAddress": "Ul. Woloska 5a, 02-675 Warszawa, Poland",
+    "FormattedContactName": "Zi T'an",
+    "ContactPhone1": "58837752208",
+    "ContactPhone2": "58837752004",
+    "ContactEmail": "supplier-info@polirado.test.com"
+  },
+  {
+    "Id": "100000017",
+    "Name": "FamousUS",
+    "Phone": "4612001085",
+    "Email": "supplier-info@famousus.test.com",
+    "WebAddress": "http://www.famousus.test.com",
+    "FormattedAddress": "2601 Westheimer Road Suite C250, TX 77098 Houston, USA",
+    "FormattedContactName": "Benjamin Gagné",
+    "ContactPhone1": "4612001085",
+    "ContactPhone2": "4612001004",
+    "ContactEmail": "supplier-info@famousus.test.com"
+  },
+  {
+    "Id": "100000018",
+    "Name": "ChinaChain",
+    "Phone": "55486454352",
+    "Email": "supplier-info@chinachain.test.com",
+    "WebAddress": "http://www.chinachain.test.com",
+    "FormattedAddress": "No. 233 Tien He Road North 6402-6403a, 510613  Guangzhou, China",
+    "FormattedContactName": "Mary Daintree",
+    "ContactPhone1": "55486454352",
+    "ContactPhone2": "55486454004",
+    "ContactEmail": "supplier-info@chinachain.test.com"
+  },
+  {
+    "Id": "100000019",
+    "Name": "Büro-Guru AG",
+    "Phone": "20772209547",
+    "Email": "supplier-info@buro-guru-ag.test.com",
+    "WebAddress": "http://www.buro-guru-ag.test.com",
+    "FormattedAddress": "Birlenbacher Str. 19-21a, 57078 Siegen, Germany",
+    "FormattedContactName": "Yukami Matsusaki",
+    "ContactPhone1": "20772209547",
+    "ContactPhone2": "20772209004",
+    "ContactEmail": "supplier-info@buro-guru-ag.test.com"
+  }
+]

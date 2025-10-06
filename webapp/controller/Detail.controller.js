@@ -4,7 +4,18 @@ sap.ui.define(
     "use strict";
 
     return Controller.extend("ztest.odata.controller.Detail", {
-      onInit: function () {},
+      onInit: function () {
+        // Get the productId from the Overview page: first get the router
+        var oRouter = this.getOwnerComponent().getRouter();
+        // Register the function to respond when the route was matched
+        oRouter.getRoute("DetailView").attachPatternMatched(this._onObjectMatched, this);
+
+      },
+      _onObjectMatched: function(oEvent) {
+        this.getView().bindElement("/Products" + oEvent.getParameter("arguments").productId);
+      },
+
+
 
       onNavBack: function () {
         var oHistory = History.getInstance();

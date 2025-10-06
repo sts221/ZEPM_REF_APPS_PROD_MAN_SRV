@@ -1,11 +1,16 @@
-<mvc:View controllerName="ztest.odata.controller.Detail" 
-            xmlns:mvc="sap.ui.core.mvc"
-            xmlns="sap.m">
-
+<mvc:View controllerName="ztest.odata.controller.Detail"
+    xmlns:mvc="sap.ui.core.mvc"
+    xmlns="sap.m">
     <Page title="{i18n>detailPageTitle}" showNavButton="true" navButtonPress=".onNavBack">
         <content>
-
+            <ObjectHeader responsive="true" fullScreenOptimized="true" title="{Id} {Name}">
+                <attributes>
+                    <!-- <ObjectAttribute title="{i18n>customerNumberTitle}" text="{CustomerNumber}"/> -->
+                    <ObjectAttribute title="Description:" text="{Description}"/>
+                    <ObjectAttribute title="Sub Category" text="{SubCategoryName}"/>
+                    <ObjectAttribute title="Price" text="{= ${Price} + ' ' + ${CurrencyCode}}"/>
+                </attributes>
+            </ObjectHeader>
         </content>
     </Page>
-
 </mvc:View>
